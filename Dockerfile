@@ -16,9 +16,9 @@ RUN cd /var/www/html
 RUN COMPOSER_ALLOW_SUPERUSER=1 COMPOSER_PROCESS_TIMEOUT=10000
 
 # Add the VCS plugin repository and install it via Composer
-RUN vendor/bin/composer config repositories.mautic-form-actions vcs https://github.com/mtcextendee/mautic-form-actions-bundle && \
-    vendor/bin/composer require mtcextendee/mautic-form-actions-bundle:^1.3 --no-scripts --no-interaction && \
-    vendor/bin/composer require chimpino/theme-air:^1.0 --no-scripts --no-interaction
+RUN composer config repositories.mautic-form-actions vcs https://github.com/mtcextendee/mautic-form-actions-bundle && \
+    composer require mtcextendee/mautic-form-actions-bundle:^1.3 --no-scripts --no-interaction && \
+    composer require chimpino/theme-air:^1.0 --no-scripts --no-interaction
     
 # Rebuild assets
 RUN npm ci & bin/console mautic:assets:generate
